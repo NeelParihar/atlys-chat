@@ -18,8 +18,9 @@ export default function FeedPage() {
         avatarUrl: "https://i.pravatar.cc/64?img=48",
       },
       createdAt: new Date().toISOString(),
+      moodEmoji: "😊",
       content:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     },
     {
       id: "2",
@@ -28,8 +29,9 @@ export default function FeedPage() {
         avatarUrl: "https://i.pravatar.cc/64?img=12",
       },
       createdAt: new Date().toISOString(),
+      moodEmoji: "😢",
       content:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     },
   ]);
 
@@ -69,11 +71,12 @@ export default function FeedPage() {
           />
         </Card>
 
-        <div className="space-y-4">
-          {posts.map((post) => (
+        <div className="space-y-4 mt-6">
+          {posts.map((post, index) => (
             <PostCard
               key={post.id}
               post={post}
+              style={{ animationDelay: `${index * 80}ms` }}
               onAction={(name) =>
                 gated(() => alert(`${name} - function not implemented`))
               }
