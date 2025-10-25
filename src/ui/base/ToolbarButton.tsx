@@ -2,8 +2,7 @@ import { forwardRef } from "react";
 import type { ButtonHTMLAttributes } from "react";
 import { cn } from "../lib/cn";
 
-export interface ToolbarButtonProps
-  extends ButtonHTMLAttributes<HTMLButtonElement> {}
+export type ToolbarButtonProps = ButtonHTMLAttributes<HTMLButtonElement>
 
 export const ToolbarButton = forwardRef<HTMLButtonElement, ToolbarButtonProps>(
   ({ className, ...props }, ref) => {
@@ -11,7 +10,7 @@ export const ToolbarButton = forwardRef<HTMLButtonElement, ToolbarButtonProps>(
       <button
         ref={ref}
         className={cn(
-          "h-8 w-8 inline-flex items-center justify-center rounded-md text-slate-600 hover:bg-slate-100",
+          "h-8 w-8 inline-flex items-center justify-center rounded-md text-slate-600 hover:bg-white hover:shadow-sm",
           className
         )}
         {...props}
