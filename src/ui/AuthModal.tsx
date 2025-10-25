@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { X } from "lucide-react";
 import { useAuth } from "../state/AuthContext";
+import { IconButton } from "./base/IconButton";
+import { Card } from "./base/Card";
+import { Button } from "./base/Button";
 
 export default function AuthModal({
   open,
@@ -24,14 +27,14 @@ export default function AuthModal({
 
   return (
     <div className="fixed inset-0 z-50 grid place-items-center bg-black/20 p-4">
-      <div className="card w-full max-w-md p-5 animate-in fade-in zoom-in duration-200">
+      <Card className="w-full max-w-md p-5 animate-in fade-in zoom-in duration-200">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-lg font-semibold">
             {mode === "signin" ? "Sign in" : "Sign up"}
           </h2>
-          <button className="icon-btn" onClick={onClose} aria-label="Close">
+          <IconButton onClick={onClose} aria-label="Close">
             <X className="h-5 w-5" />
-          </button>
+          </IconButton>
         </div>
         <form className="space-y-4" onSubmit={submit}>
           <div>
@@ -52,9 +55,9 @@ export default function AuthModal({
               className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 outline-none focus:ring-2 focus:ring-indigo-500"
             />
           </div>
-          <button className="btn btn-primary w-full" type="submit">
+          <Button className="w-full" type="submit">
             Continue
-          </button>
+          </Button>
         </form>
         <p className="text-sm text-slate-600 mt-4 text-center">
           {mode === "signin" ? (
@@ -79,7 +82,7 @@ export default function AuthModal({
             </>
           )}
         </p>
-      </div>
+      </Card>
     </div>
   );
 }

@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { ArrowRight } from "lucide-react";
 import Navbar from "../ui/Navbar";
 import PostEditor from "../ui/PostEditor";
 import PostCard from "../ui/PostCard";
 import type { Post } from "../ui/PostCard";
 import AuthModal from "../ui/AuthModal";
 import { useAuth } from "../state/AuthContext";
+import { Card } from "../ui/base/Card";
 
 export default function FeedPage() {
   const { isAuthenticated } = useAuth();
@@ -61,13 +61,13 @@ export default function FeedPage() {
       <Navbar onLoginClick={() => setShowAuth(true)} />
 
       <main className="mx-auto max-w-2xl py-8 px-4">
-        <section className="card p-3 sm:p-4 mb-4">
+        <Card className="p-3 sm:p-2 mb-4" as="section">
           <PostEditor
             placeholder="How are you feeling today?"
             onPublish={handlePublish}
             onNotImplemented={() => alert("function not implemented")}
           />
-        </section>
+        </Card>
 
         <div className="space-y-4">
           {posts.map((post) => (

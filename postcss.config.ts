@@ -1,5 +1,5 @@
 import tailwindcss from "@tailwindcss/postcss";
 
 export default {
-  plugins: [tailwindcss, import("autoprefixer")],
+  plugins: [tailwindcss, require("autoprefixer")],
 };

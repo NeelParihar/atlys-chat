@@ -1,4 +1,6 @@
 import { Heart, MessageCircle, Share, Bookmark } from "lucide-react";
+import { Card } from "./base/Card";
+import { IconButton } from "./base/IconButton";
 
 export type Post = {
   id: string;
@@ -15,7 +17,7 @@ export default function PostCard({
   onAction: (action: "like" | "comment" | "share" | "save") => void;
 }) {
   return (
-    <article className="card p-4">
+    <Card as="article" className="p-4">
       <header className="flex items-center gap-3 mb-3">
         <img
           src={post.author.avatarUrl}
@@ -29,35 +31,19 @@ export default function PostCard({
       </header>
       <p className="text-sm text-slate-700 leading-6">{post.content}</p>
       <footer className="mt-4 flex items-center gap-2 text-slate-600">
-        <button
-          className="icon-btn"
-          onClick={() => onAction("like")}
-          aria-label="Like"
-        >
+        <IconButton onClick={() => onAction("like")} aria-label="Like">
           <Heart className="h-5 w-5" />
-        </button>
-        <button
-          className="icon-btn"
-          onClick={() => onAction("comment")}
-          aria-label="Comment"
-        >
+        </IconButton>
+        <IconButton onClick={() => onAction("comment")} aria-label="Comment">
           <MessageCircle className="h-5 w-5" />
-        </button>
-        <button
-          className="icon-btn"
-          onClick={() => onAction("share")}
-          aria-label="Share"
-        >
+        </IconButton>
+        <IconButton onClick={() => onAction("share")} aria-label="Share">
           <Share className="h-5 w-5" />
-        </button>
-        <button
-          className="icon-btn"
-          onClick={() => onAction("save")}
-          aria-label="Save"
-        >
+        </IconButton>
+        <IconButton onClick={() => onAction("save")} aria-label="Save">
           <Bookmark className="h-5 w-5" />
-        </button>
+        </IconButton>
       </footer>
-    </article>
+    </Card>
   );
 }

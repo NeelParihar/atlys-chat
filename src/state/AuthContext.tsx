@@ -33,6 +33,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         localStorage.setItem("auth:user", email);
         setUserEmail(email);
       },
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       async signUp(email: string, _password: string) {
         // In-memory fake signup; accept any email and store
         localStorage.setItem("auth:user", email);
@@ -49,6 +50,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export function useAuth() {
   const ctx = useContext(AuthContext);
   if (!ctx) throw new Error("useAuth must be used within AuthProvider");
